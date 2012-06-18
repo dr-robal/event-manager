@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Facebook user ID</th>
+  </tr>
+
+<% attend.each do |attending| %>
+  <tr>
+    <td><%= attending['name'] %></td>
+    <td><%= attending['id'] %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Location</th>
+    <th>Participants declared</th>
+    <th>Participants maybe</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.start_time %></td>
+    <td><%= event.end_time %></td>
+    <td><%= event.location %></td>
+    <td><%= event.participants_declared %></td>
+    <td><%= event.participants_maybe %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, confirm: 'Are you sure?', method: :delete %></td>
+    <% if can_close_link? event %>
+    <td><%= link_to 'Close', close_event_path(event) %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

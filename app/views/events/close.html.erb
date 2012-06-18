@@ -1,0 +1,55 @@
+<h1>Closing event</h1>
+
+<%= form_for(@event, :url => close_update_event_path(@event)) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,:disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time,:disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.datetime_select :end_time, :include_blank => true,:disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description,:disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location,:disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :privacy_type %><br />
+    <%= f.select :privacy_type,@privacy_type, {}, {:disabled => true} %>
+  </div>
+  <div class="field">
+    <%= f.label :participants_declared %><i>(Value taken from facebook)</i><br />
+    <%= f.number_field :participants_declared, :value => @attending.size  %>
+  </div>
+  <div class="field">
+    <%= f.label :participants_maybe %><i>(Value taken from facebook)</i><br />
+    <%= f.number_field :participants_maybe, :value => @maybe_attending.size  %>
+  </div>
+  <div class="field">
+    <%= f.label :participants_present %><i>(Should be inserted manually)</i><br />
+    <%= f.number_field :participants_present %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Close event' %>
+  </div>
+<% end %>

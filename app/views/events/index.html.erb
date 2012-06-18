@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing active events</h1>
+<%= link_to 'Get actual statistics', get_actual_statistics_path %>
+
+<%= render 'eventslist' %>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %> | 
+<%= link_to 'Old events', oldevents_events_path %>

@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Facebookid:</b>
+  <%= @event.facebookID %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @event.name %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @event.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @event.location %>
+</p>
+
+<p>
+  <b>Privacy type:</b>
+  <%= @event.privacy_type %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @event.status %>
+</p>
+
+<p>
+  <b>Participants declared:</b>
+  <%= @event.participants_declared %>
+</p>
+
+<p>
+  <b>Participants maybe:</b>
+  <%= @event.participants_maybe %>
+</p>
+
+<p>
+  <b>Participants present:</b>
+  <%= @event.participants_present %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+
+<h2>Participants Declared</h2>
+<%= link_to 'Participants declared', attending_event_path(@event) %>
+<h2>Participants Maybe</h2>
+<%= link_to 'Participants maybe', maybeattending_event_path(@event) %>
